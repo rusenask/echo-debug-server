@@ -82,7 +82,8 @@ func main() {
 			Body:     bstr,
 		}
 		respData.ServerInfo.Port = port
-		resp, err := json.Marshal(respData)
+
+		resp, err := json.MarshalIndent(respData, "", "  ")
 		if err != nil {
 			log.Println("[ERROR] failed to marshal resp body, error: ", err)
 			w.WriteHeader(500)
